@@ -1,0 +1,20 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: react-app
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: react-app
+  template:
+      metadata:
+        labels:
+          app: react-app
+      spec:
+         containers:
+            - name: react-app
+              image: gcr.io/sturdy-coast-452417-c3/react-app:latest
+              ports:
+                - containerPort: 80
+
